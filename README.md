@@ -1,2 +1,3 @@
-# singbox--
+# singbox_proxy_config
+
 一个用于存放singbox配置的仓库...
