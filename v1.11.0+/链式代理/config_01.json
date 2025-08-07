@@ -22,7 +22,7 @@
       "enabled": true,
       "path": "cache.db",
       "cache_id": "",
-      "store_fakeip": true,
+      "store_fakeip": false,
       "store_rdrc": true,
       "rdrc_timeout": "7d"
     }
@@ -42,20 +42,14 @@
       "tag": "tun-in",
       "interface_name": "",
       "address": [
-        "172.18.0.1/30"
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
       ],
       "mtu": 9000,
       "auto_route": true,
-      "strict_route": true,
+      "strict_route": false,
       "endpoint_independent_nat": false,
-      "stack": "mixed",
-      "platform": {
-        "http_proxy": {
-          "enabled": true,
-          "server": "127.0.0.1",
-          "server_port": 20122
-        }
-      }
+      "stack": "system"
     }
   ],
   "outbounds": [
@@ -103,10 +97,24 @@
     },
     {
       "type": "selector",
-      "tag": "🌐 Bing",
+      "tag": "🔍 Bing",
       "interrupt_exist_connections": true,
       "outbounds": [
         "🎯 全球直连",
+        "🚀 落地节点",
+        "🧭 机场节点",
+        "🇭🇰 香港",
+        "🇹🇼 台湾",
+        "🇸🇬 新加坡",
+        "🇯🇵 日本",
+        "🇺🇸 美国"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🌐 Google",
+      "interrupt_exist_connections": true,
+      "outbounds": [
         "🚀 落地节点",
         "🧭 机场节点",
         "🇭🇰 香港",
@@ -285,11 +293,23 @@
     "rules": [
       {
         "action": "route",
+        "domain_suffix": "googleapis.cn",
+        "outbound": "🌐 Google"
+      },
+      {
+        "action": "route",
+        "rule_set": [
+          "Google"
+        ],
+        "outbound": "🌐 Google"
+      },
+      {
+        "action": "route",
         "rule_set": [
           "Bing-CN",
           "Bing"
         ],
-        "outbound": "🌐 Bing"
+        "outbound": "🔍 Bing"
       },
       {
         "action": "route",
@@ -430,6 +450,13 @@
       }
     ],
     "rule_set": [
+      {
+        "tag": "Google",
+        "type": "remote",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
+        "format": "binary",
+        "download_detour": "🧭 机场节点"
+      },
       {
         "tag": "Telegram_IP",
         "type": "remote",
@@ -647,7 +674,6 @@
     "disable_cache": true,
     "disable_expire": false,
     "independent_cache": false,
-    "final": "Remote-DNS",
-    "strategy": "ipv4_only"
+    "final": "Remote-DNS"
   }
 }
