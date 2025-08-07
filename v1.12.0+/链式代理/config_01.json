@@ -16,14 +16,14 @@
       "access_control_allow_origin": [
         "*"
       ],
-      "access_control_allow_private_network": false
+      "access_control_allow_private_network": true
     },
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
       "cache_id": "",
       "store_fakeip": false,
-      "store_rdrc": true,
+      "store_rdrc": false,
       "rdrc_timeout": "7d"
     }
   },
@@ -47,7 +47,7 @@
       ],
       "mtu": 9000,
       "auto_route": true,
-      "strict_route": false,
+      "strict_route": true,
       "endpoint_independent_nat": false,
       "stack": "system",
       "platform": {
@@ -460,7 +460,7 @@
       {
         "tag": "Google",
         "type": "remote",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-google.srs",
         "format": "binary",
         "download_detour": "🧭 机场节点"
       },
@@ -630,7 +630,6 @@
       {
         "tag": "Local-DNS",
         "type": "tls",
-        "domain_resolver": "Local-DNS-Resolver",
         "server_port": 853,
         "server": "223.5.5.5"
       },
@@ -644,16 +643,15 @@
         "tag": "Remote-DNS",
         "type": "tls",
         "detour": "🚀 落地节点",
-        "domain_resolver": "Remote-DNS-Resolver",
         "server_port": 853,
         "server": "1.1.1.1"
       },
       {
         "tag": "Remote-DNS-Resolver",
-        "type": "udp",
+        "type": "tls",
         "detour": "🚀 落地节点",
-        "server_port": 53,
-        "server": "1.1.1.1"
+        "server_port": 853,
+        "server": "8.8.8.8"
       }
     ],
     "rules": [
@@ -682,10 +680,10 @@
         "server": "Remote-DNS"
       }
     ],
-    "disable_cache": true,
+    "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
-    "final": "Remote-DNS",
+    "final": "Local-DNS-Resolver",
     "strategy": "ipv4_only"
   }
 }
