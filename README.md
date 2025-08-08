@@ -12,7 +12,7 @@
 
 [点击查看文章：使用Sub Store动态生成Sing-box配置](https://www.tsy.ink/archives/2025/08/?p=101)
 
-[点击查看文章：使用Sub Store 动态生成 Sing-box配置](https://www.tsy.ink/archives/2025/08/?p=118)
+[点击查看文章：使用Sub Store 动态生成 Sing-box 链式代理配置](https://www.tsy.ink/archives/2025/08/?p=118)
 
 ---
 
