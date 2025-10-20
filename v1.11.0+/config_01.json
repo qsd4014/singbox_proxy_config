@@ -293,7 +293,8 @@
         "rule_set": [
           "OpenAI",
           "Claude",
-          "Gemini"
+          "Gemini",
+          "Perplexity"
         ],
         "outbound": "🤖 AI"
       },
@@ -453,6 +454,13 @@
         "tag": "Gemini",
         "type": "remote",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-google-gemini.srs",
+        "format": "binary",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "Perplexity",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-perplexity.srs",
         "format": "binary",
         "download_detour": "🚀 节点选择"
       },
