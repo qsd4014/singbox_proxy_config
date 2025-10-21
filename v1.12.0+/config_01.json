@@ -175,6 +175,20 @@
     },
     {
       "type": "selector",
+      "tag": "🎥 Emby Proxy",
+      "interrupt_exist_connections": true,
+      "outbounds": [
+        "✈️ 手动选择",
+        "🚀 节点选择",
+        "🇭🇰 香港",
+        "🇹🇼 台湾",
+        "🇯🇵 日本",
+        "🇸🇬 新加坡",
+        "🇺🇸 美国"
+      ]
+    },
+    {
+      "type": "selector",
       "tag": "🎥 bilibili",
       "interrupt_exist_connections": true,
       "outbounds": [
@@ -373,6 +387,13 @@
           "Netflix"
         ],
         "outbound": "📺 Netflix"
+      },
+      {
+        "action": "route",
+        "rule_set": [
+          "Emby_Proxy"
+        ],
+        "outbound": "🎥 Emby Proxy"
       },
       {
         "action": "route",
@@ -585,6 +606,13 @@
         "type": "remote",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-google.srs",
         "format": "binary",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "Emby_Proxy",
+        "type": "remote",
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/qsd4014/ss_profile/refs/heads/main/Rules_SingBox/Emby_proxy.json",
         "download_detour": "🚀 节点选择"
       },
       {
