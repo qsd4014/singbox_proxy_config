@@ -40,7 +40,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "",
+      "interface_name": "tun0",
       "address": [
         "172.18.0.1/30",
         "fdfe:dcba:9876::1/126"
@@ -668,35 +668,31 @@
     "servers": [
       {
         "tag": "Local-DNS",
-        "type": "https",
-        "domain_resolver": "Local-DNS-Resolver",
-        "server_port": 443,
-        "server": "223.5.5.5",
-        "path": "/dns-query"
+        "address": "tls://223.5.5.5:853",
+        "detour": "🎯 全球直连"
       },
       {
         "tag": "Local-DNS-Resolver",
-        "type": "udp",
-        "server_port": 53,
-        "server": "223.5.5.5"
+        "address": "udp://223.5.5.5:53",
+        "detour": "🎯 全球直连"
       },
       {
         "tag": "Remote-DNS",
-        "type": "tls",
-        "detour": "🚀 节点选择",
-        "domain_resolver": "Remote-DNS-Resolver",
-        "server_port": 853,
-        "server": "8.8.8.8"
+        "address": "tls://8.8.8.8:853",
+        "detour": "🚀 节点选择"
       },
       {
         "tag": "Remote-DNS-Resolver",
-        "type": "udp",
-        "detour": "🚀 节点选择",
-        "server_port": 53,
-        "server": "8.8.8.8"
+        "address": "udp://8.8.8.8:53",
+        "detour": "🚀 节点选择"
       }
     ],
     "rules": [
+      {
+        "action": "route",
+        "server": "Local-DNS",
+        "outbound": "any"
+      },
       {
         "action": "route",
         "clash_mode": "direct",
@@ -725,7 +721,6 @@
     "disable_cache": false,
     "disable_expire": false,
     "independent_cache": false,
-    "final": "Remote-DNS",
-    "strategy": "prefer_ipv6"
+    "final": "Local-DNS-Resolver"
   }
 }
