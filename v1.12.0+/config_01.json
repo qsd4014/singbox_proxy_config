@@ -192,6 +192,7 @@
       "tag": "🎬 TikTok",
       "interrupt_exist_connections": true,
       "outbounds": [
+        "🎯 全球直连",
         "🚀 节点选择",
         "✈️ 手动选择",
         "🇭🇰 香港",
