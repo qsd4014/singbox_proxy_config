@@ -74,7 +74,7 @@
     },
     {
       "type": "selector",
-      "tag": "家宽ISP",
+      "tag": "家宽 ISP",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
