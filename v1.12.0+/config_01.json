@@ -507,13 +507,6 @@
       {
         "action": "route",
         "rule_set": [
-          "GeoSite-Feishu"
-        ],
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "action": "route",
-        "rule_set": [
           "GeoIP-Private"
         ],
         "outbound": "🎯 全球直连"
@@ -706,13 +699,6 @@
         "tag": "GeoSite-CN",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
-        "format": "binary",
-        "download_detour": "🚀 节点选择"
-      },
-      {
-        "tag": "GeoSite-Feishu",
-        "type": "remote",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-feishu.srs",
         "format": "binary",
         "download_detour": "🚀 节点选择"
       },
