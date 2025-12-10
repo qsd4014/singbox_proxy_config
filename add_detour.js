@@ -20,7 +20,7 @@ if (Array.isArray(config.outbounds)) {
     const groupTypes = ['selector', 'urltest', 'url-test', 'fallback', 'direct', 'block']
 
     if (tag.includes('落地') && !groupTypes.includes(ob.type)) {
-      ob.detour = '🚀 节点选择'
+      ob.detour = '🇭🇰 香港'
     }
   })
 }
