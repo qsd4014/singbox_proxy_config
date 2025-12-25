@@ -80,6 +80,12 @@
     },
     {
       "type": "selector",
+      "tag": "↔️ 中转节点",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
       "tag": "🏠️ 家宽ISP",
       "interrupt_exist_connections": true,
       "outbounds": []
